@@ -1,0 +1,11 @@
+package entity
+
+import (
+	"gorm.io/gorm"
+)
+type User struct {
+	gorm.Model
+	StudentID string `valid:"required~Student ID is required, matches(^[BMD]\\d{7}$)~Invalid Student ID format"`
+	Phone     string `valid:"required~Phone is required, stringlength(10|10)"`
+	Email string `valid:"required,email~email is not true pattern"`
+}
